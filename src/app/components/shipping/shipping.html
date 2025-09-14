@@ -1,0 +1,93 @@
+  <div class="cart-step">
+    <span>1. Carro de la compra</span>
+    <span class="active">2. Detalles de envío</span>
+    <span>3. Opciones de pago</span>
+    <span>4. Confirmación de pago</span>
+  </div>
+
+  <div class="container">
+    <!-- Shipping Form -->
+    <div class="shipping-form">
+      <h2>Detalles de envío</h2>
+      <form>
+        <div class="form-row">
+          <input type="text" placeholder="Nombres:">
+          <input type="text" placeholder="Apellidos:">
+        </div>
+        <input type="text" placeholder="Dirección:">
+        <input type="text" placeholder="Dirección 2:">
+        <div class="form-row">
+          <select>
+            <option>País</option>
+          </select>
+          <input type="text" placeholder="Ciudad:">
+        </div>
+        <div class="form-row">
+          <input type="text" placeholder="Código Postal:">
+          <input type="text" placeholder="Teléfono:">
+        </div>
+
+        <!-- Shipping Options -->
+        <!-- <div class="shipping-options">
+          <div class="option selected">
+            <input type="radio" name="delivery" checked>
+            <div>
+              <strong>Free Shipping</strong><br>
+              <span>Between 2 - 5 working days</span>
+            </div>
+          </div>
+          <div class="option">
+            <input type="radio" name="delivery">
+            <div>
+              <strong>Next Day Delivery - $20</strong><br>
+              <span>24 hours from checkout</span>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- Buttons -->
+        <div class="form-buttons">
+          <a href="/payment" id="btnaddcart">Siguiente</a> &nbsp;&nbsp;&nbsp;
+        <a href="/cart" id="btnaddcart2">Regresar</a>
+        </div>
+      </form>
+    </div>
+
+    <!-- Summary -->
+    <div class="summary">
+      <h2>Detalles:</h2>
+      <div class="summary-item">
+        <div class="image-placeholder"><img src="images/products/colchones/MD008017-1.jpg" alt=""></div>
+        <div>
+          <span>Producto 1</span><br>
+          <span>S/300.00</span>
+        </div>
+      </div>
+      <div class="summary-item">
+        <div class="image-placeholder"><img src="images/products/colchones/MD008003-1.jpg" alt=""></div>
+        <div>
+          <span>Producto 2</span><br>
+          <span>S/300.00</span>
+        </div>
+      </div>
+
+      <!-- <div class="voucher">
+        <a href="#">HAVE A VOUCHER?</a>
+      </div> -->
+
+      <div class="summary-totals">
+        <div class="row">
+        <div class="col-6"><span>Subtotal</span></div>
+        <div class="col-6"><span>S/600.00</span></div>
+      </div>
+      <div class="row">
+        <div class="col-6"><span>Gastos de envío</span></div>
+        <div class="col-6"><span>S/0.00</span></div>
+      </div>
+      <div class="row total">
+        <div class="col-6"><span>TOTAL</span></div>
+        <div class="col-6"><span>S/600.00</span></div>
+      </div>
+      </div>
+    </div>
+  </div>

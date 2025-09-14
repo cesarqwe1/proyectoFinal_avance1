@@ -1,0 +1,103 @@
+<!-- <header>
+    <div class="logo">👤</div>
+    <input type="text" placeholder="Search..." style="padding:5px 10px;width:250px;">
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Shop</a>
+      <a href="#">Help</a>
+      <a href="#"><strong>Your Cart</strong></a>
+    </nav>
+  </header> -->
+
+  <div class="cart-step">
+    <span class="active">1. Carro de la compra</span>
+    <span>2. Detalles de envío</span>
+    <span>3. Opciones de pago</span>
+    <span>4. Confirmación de pago</span>
+  </div>
+
+  <div class="container">
+    <div class="shopping-cart">
+      <h2>Carro de la compra</h2>
+
+      <div class="cart-item">
+        <img src="images/products/colchones/MD008017-1.jpg" alt="product">
+        <div class="cart-item-details">
+          <h4>NOMBRE PRODUCTO</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="cart-item-price">S/300.00</div>
+        <select>
+          <option>1 pcs</option>
+          <option>2 pcs</option>
+          <option>3 pcs</option>
+        </select>
+      </div>
+
+      <div class="cart-item">
+        <img src="images/products/colchones/MD008003-1.jpg" alt="product">
+        <div class="cart-item-details">
+          <h4>NOMBRE PRODUCTO</h4>
+          <p>Cras auctor tortor in augue ultricies, ut viverra urna accumsan.</p>
+        </div>
+        <div class="cart-item-price">S/200.00</div>
+        <select>
+          <option>1 pcs</option>
+          <option>2 pcs</option>
+          <option>3 pcs</option>
+        </select>
+      </div>
+      <div class="cart-item">
+        <img src="images/products/colchones/MD007851-1.jpg" alt="product">
+        <div class="cart-item-details">
+          <h4>NOMBRE PRODUCTO</h4>
+          <p>Cras auctor tortor in augue ultricies, ut viverra urna accumsan.</p>
+        </div>
+        <div class="cart-item-price">S/100.00</div>
+        <select>
+          <option>1 pcs</option>
+          <option>2 pcs</option>
+          <option>3 pcs</option>
+        </select>
+      </div>
+
+      <div class="buttons">
+        <!-- <button class="next">Siguiente</button>
+        <button class="cancel">Cancelar</button> -->
+        <a href="/shipping" id="btnaddcart">Siguiente</a> &nbsp;&nbsp;&nbsp;
+        <a href="/home" id="btnaddcart2">Cancelar</a>
+      </div>
+    </div>
+
+    <div class="summary">
+      <h3>Detalles:</h3>
+      <!-- Ingresar codigo promocional: <input type="text" class="form-control" placeholder="Ingresar codigo"> <br> -->
+      <div class="cupon-container">
+        <label for="codigo-cupon">¿Tienes un cupón?
+        </label>
+        <div class="cupon-input-group">
+          <div class="row">
+            <div class="col-8" id="div_codigo_cupon">
+              <input type="text" id="codigo-cupon" class="form-control" placeholder="Código cupón" />
+            </div>
+            <div class="col-4">
+              <button type="button" class="btn btn-primary" id="btnaplicar">Aplicar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6"><span>Subtotal</span></div>
+        <div class="col-6"><span>S/600.00</span></div>
+      </div>
+      <div class="row">
+        <div class="col-6"><span>Gastos de envío</span></div>
+        <div class="col-6"><span>S/0.00</span></div>
+      </div>
+      <div class="row total">
+        <div class="col-6"><span>TOTAL</span></div>
+        <div class="col-6"><span>S/600.00</span></div>
+      </div>
+    </div>
+  </div>

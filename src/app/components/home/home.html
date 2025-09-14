@@ -1,0 +1,98 @@
+
+<script src="js/script.js" type="text/javascript"></script>
+    <div class="categories">
+        <div class="category"><img src="images/banner1.jpg" alt=""></div>
+        <!-- <div class="category">Category</div>
+        <div class="category">Category</div>
+        <div class="category">Category</div>
+        <div class="category">Category</div>
+        <div class="category">Category</div> -->
+    </div>
+    <section>
+        <h4>¡Lleva más, paga menos con estas ofertas!</h4>
+        <div class="offers">
+            <div class="offer-box">
+                <img src="images/ofertas/imp1.jpg" alt=""><br>
+                <span>Super Ofertas en alimento seco Pro Plan</span>
+            </div>
+            <div class="offer-box">
+                <img src="images/ofertas/imp2.jpg" alt=""><br>
+                <span>¡2da 50% en snacks perro y gato!</span>
+            </div>
+            <div class="offer-box">
+                <img src="images/ofertas/imp3.jpg" alt=""><br>
+                <span>¡Ofertas de 25% en gimnasios y postes!</span>
+            </div>
+        </div>
+    </section>
+    
+
+    <section>
+        <!-- <h2>Inspiration</h2>
+            <div class="grid">
+                <div class="card"><img alt="">
+                    <p>Product</p>
+                </div>
+                <div class="card"><img alt="">
+                    <p>Product</p>
+                </div>
+                <div class="card"><img alt="">
+                    <p>Product</p>
+                </div>
+                <div class="card"><img alt="">
+                    <p>Product</p>
+                </div>
+            </div> -->
+        <div class="grid"><img src="images/sliders/carousel.png" id="imgcarousel" alt=""></div>
+    </section>
+    <hr>
+    <section>
+        <h2>Productos Recomendados</h2>
+        <!-- <div class="grid">
+            <div class="card">
+                <img alt="">
+                <h4>Product Name</h4>
+                <p>$100</p>
+            </div>
+            <div class="card">
+                <img alt="">
+                <h4>Product Name</h4>
+                <p>$100</p>
+            </div>
+            <div class="card">
+                <img alt="">
+                <h4>Product Name</h4>
+                <p>$100</p>
+            </div>
+            <div class="card">
+                <img alt="">
+                <h4>Product Name</h4>
+                <p>$100</p>
+            </div>
+        </div> -->
+        <app-home-product-recommend></app-home-product-recommend>
+    </section>
+
+    <script>
+        const carousel = document.getElementById("carousel");
+    const prev = document.getElementById("prev");
+    const next = document.getElementById("next");
+
+    let scrollAmount = 0;
+    const itemWidth = 160; // ancho de cada item + margen
+    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+    next.addEventListener("click", () => {
+      if (scrollAmount < maxScroll) {
+        scrollAmount += itemWidth;
+        carousel.style.transform = `translateX(-${scrollAmount}px)`;
+      }
+    });
+
+    prev.addEventListener("click", () => {
+      if (scrollAmount > 0) {
+        scrollAmount -= itemWidth;
+        carousel.style.transform = `translateX(-${scrollAmount}px)`;
+      }
+    });
+    </script>

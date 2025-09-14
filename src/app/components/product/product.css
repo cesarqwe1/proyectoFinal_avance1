@@ -1,0 +1,95 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+    body{color:#333;background:#fff;line-height:1.6}
+
+    header{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:15px 40px;background:#f8f8f8;
+    }
+    .container{
+        margin: 0 auto;
+        max-width: 1700px;
+    }
+    
+    header .logo{font-weight:bold}
+    header nav a{margin:0 10px;text-decoration:none;color:#333}
+    header .cart{background:#333;color:#fff;padding:6px 15px;border-radius:5px}
+    .search-bar input{padding:6px;border:1px solid #ccc;border-radius:4px}
+    .main-img img{max-width:100%;}
+    .product-detail{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+      max-width:1100px;
+      margin:30px auto;
+      padding:0 20px;
+    }
+    .product-images{
+      border:1px solid #ddd;
+      padding:20px;
+      text-align:center;
+      max-width: 400px;
+    }
+    #btnaddcart{
+      display: inline-block;
+    padding: 10px 20px;
+    background-color: #0B7DB9;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: #082e57;
+    }
+    #btnaddcart:hover{
+    background-color: #082e57;
+    }
+    .product-images .thumbs{display:flex;justify-content:center;gap:10px;margin-top:10px}
+    .thumbs div{width:50px;height:50px;background:#f3f3f3;border:1px solid #ccc}
+
+    .product-info h1{font-size:22px;margin-bottom:10px}
+    .rating{margin-bottom:10px}
+    .price{font-size:22px;color:green;margin:15px 0}
+    select{padding:6px;margin-bottom:15px}
+    .product-info button{
+      padding:10px 20px;border:none;background:#333;color:#fff;
+      border-radius:6px;cursor:pointer;
+    }
+    .product-info p{margin:15px 0;color:#555}
+
+    section{max-width:1100px;margin:40px auto;padding:0 20px}
+    section h2{margin-bottom:20px}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:20px;
+    }
+    .card{
+      border:1px solid #ccc;
+      padding:15px;
+      text-align:center;
+    }
+    .card .price{color:green;margin-top:8px}
+
+    .reviews .review{
+      display:flex;
+      gap:15px;
+      margin-bottom:20px;
+      padding-bottom:15px;
+      border-bottom:1px solid #eee;
+    }
+    .avatar{width:50px;height:50px;border-radius:50%;background:#ddd}
+    .review-content h4{margin-bottom:5px}
+    .review-content p{font-size:14px;color:#555}
+
+    footer{
+      background:#f8f8f8;
+      padding:30px 40px;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:20px;
+    }
+    footer div{flex:1;min-width:180px}
+    footer h4{margin-bottom:8px}
+    footer ul{list-style:none}
+    footer ul li{margin-bottom:5px}
+    footer a{text-decoration:none;color:#333}

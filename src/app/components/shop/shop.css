@@ -1,0 +1,182 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    .container{
+        margin: 0 auto;
+        max-width: 1700px;
+    }
+
+    body {
+      color: #333;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background: #f8f8f8;
+    }
+
+    .logo {
+      font-weight: bold;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-bar input {
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .cart {
+      background: #333;
+      color: #fff;
+      padding: 6px 15px;
+      border-radius: 5px;
+    }
+
+    /* Category section */
+    .categories {
+      display: grid;
+      justify-content: center;
+      /* gap: 15px; */
+      padding: 20px;  
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .category {
+      /* border: 1px solid #ccc; */
+      /* padding: 40px; */
+      text-align: center;
+      /* width: 120px; */
+      cursor: pointer;
+      margin: 0 auto;
+    }
+
+    .category p {
+    font-weight: 400;
+    font-size: .875rem;
+    padding-top: 1em;
+    }
+    .category p:hover {
+          text-decoration: underline;
+    }
+
+    .category img {
+      max-width: 60%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 70px;
+      /* box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease; */
+    }
+
+    /* Offers */
+    .offers {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 30px 20px;
+    }
+
+    .offer-box {
+      border: 1px solid #ddd;
+      flex: 1;
+      padding: 30px;
+      text-align: center;
+      min-height: 120px;
+    }
+
+    .offer-box button {
+      padding: 8px 15px;
+      margin-top: 15px;
+      border: none;
+      background: #333;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    /* Inspiration & Products */
+    section {
+      padding: 40px 20px;
+    }
+
+    section h2 {
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      border: 1px solid #ccc;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .product-name {
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .price {
+      color: green;
+      margin-bottom: 8px;
+    }
+
+    /* Footer */
+    footer {
+      background: #f8f8f8;
+      padding: 30px 40px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    footer div {
+      flex: 1;
+      min-width: 180px;
+    }
+
+    footer ul {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    footer ul li {
+      margin-bottom: 5px;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: #333;
+    }

@@ -1,0 +1,93 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  color: #002c5f;
+  margin: 0;
+  padding: 40px;
+}
+
+h2 {
+  text-align: center;
+  color: #002c5f;
+  font-weight: bold;
+}
+
+.section-divider {
+  width: 60px;
+  margin: 10px auto 30px auto;
+  border: 2px solid #002c5f;
+  border-radius: 5px;
+}
+
+.about-text {
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.about-content {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.address-box {
+  text-align: center;
+  max-width: 300px;
+}
+
+.icon-circle {
+  /* background-color: #00548c; */
+  color: white;
+  font-size: 30px;
+  /* padding: 30px; */
+  border-radius: 50%;
+  margin: 0 auto 15px auto;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-box {
+  max-width: 450px;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.benefits-section {
+  margin-top: 40px;
+}
+
+.benefits-list {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.benefits-list ul {
+  list-style: none;
+  padding: 0;
+  max-width: 400px;
+}
+
+.benefits-list li {
+  font-size: 15px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.benefits-list li::before {
+  content: "✅";
+  margin-right: 8px;
+  color: green;
+}

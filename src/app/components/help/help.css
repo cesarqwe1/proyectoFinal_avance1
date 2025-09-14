@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f9fa;
+  padding: 30px;
+}
+
+.contact-wrapper {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.info-boxes {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  gap: 20px;
+}
+
+.info-box {
+  background-color: white;
+  flex: 1;
+  text-align: center;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px gray;
+}
+
+.info-box .icon {
+  font-size: 30px;
+  color: #003366;
+  margin-bottom: 10px;
+}
+
+.info-box h3 {
+  font-size: 16px;
+  color: #003366;
+  margin-bottom: 5px;
+}
+
+.info-box p {
+  color: #555;
+  font-size: 14px;
+}
+
+.contact-content {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* Map */
+.map-container {
+  flex: 1;
+  min-width: 300px;
+  /* background-color: #eaeaea; */
+  /* border-radius: 10px; */
+  overflow: hidden;
+  /* box-shadow: 0 2px 8px rgba(0,0,0,0.05); */
+}
+
+/* Form */
+.form-container {
+  flex: 1;
+  min-width: 300px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Fake CAPTCHA + Submit */
+.captcha-row {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.fake-captcha {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fake-captcha label {
+  font-size: 14px;
+}
+
+.captcha-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 10px;
+  color: #666;
+}
+
+button[type="submit"] {
+  background-color: #003366;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #00509e;
+}
