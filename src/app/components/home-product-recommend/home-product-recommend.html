@@ -1,5 +1,17 @@
 <!-- <section><h2>Productos</h2></section> -->
+ <div class="card">
 
+  <img src="{{ product.image }}" alt="{{ product.name }}">
+  <div class="card-content">
+    <div>
+      <div class="brand">{{ product.brand }}</div>
+      <div class="title">{{ product.name }}</div>
+      <div class="price">S/{{ product.price }}</div>
+    </div>
+    <a href="/product/{{ product.id }}" class="btn">Ver producto</a>
+  </div>
+</div>
+<!-- 
 <div class="grid">
     <div class="card">
       <img src="images/products/products_recommend/product_recommend1.jpg" alt="Cojín Beige">
@@ -59,4 +71,4 @@
         <a href="/product/product_recommend4" class="btn">Ver producto</a>
       </div>
     </div>
-  </div>
+  </div> -->

@@ -16,13 +16,25 @@
   </header> -->
 
   <div class="categories">
-    <div class="category"><img src="images/products/categorias/categoria1.jpg" alt="Category 1"><p>Alimentos y snacks</p></div>
-    <div class="category"><img src="images/products/categorias/categoria2.jpg" alt="Category 2"><p>Salud e Higiene</p></div>
-    <div class="category"><img src="images/products/categorias/categoria3.jpg" alt="Category 3"><p>Accesorios y otros</p></div>
-    <div class="category"><img src="images/products/categorias/categoria4.jpg" alt="Category 4"><p>Juguetes</p></div>
-    <div class="category"><img src="images/products/categorias/categoria5.jpg" alt="Category 5"><p>Camas</p></div>
+    <div class="category" (click)="applyFilters(1)"><img src="images/products/categorias/categoria1.jpg" alt="Category 1"><p>Alimentos y snacks</p></div>
+    <div class="category" (click)="applyFilters(2)"><img src="images/products/categorias/categoria2.jpg" alt="Category 2"><p>Salud e Higiene</p></div>
+    <div class="category" (click)="applyFilters(3)"><img src="images/products/categorias/categoria3.jpg" alt="Category 3"><p>Accesorios y otros</p></div>
+    <div class="category" (click)="applyFilters(4)"><img src="images/products/categorias/categoria4.jpg" alt="Category 4"><p>Juguetes</p></div>
+    <div class="category" (click)="applyFilters(5)"><img src="images/products/categorias/categoria5.jpg" alt="Category 5"><p>Camas</p></div>
   </div><br>
-  <app-shop-details></app-shop-details>
+<hr>
+<section><h2>{{ text_category }}</h2></section>
+<div class="grid">
+  <app-shop-details *ngFor="let product of filteredProducts | paginate: { itemsPerPage: itemsPerPage, currentPage: p }" 
+  [product]="product"></app-shop-details>
+</div>
+
+<section class="section-pagination">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</section>
+
+  
+
   <!-- <div class="offers">
     <div class="offer-box">
       <h3>Ongoing SALE - 50% OFF</h3>

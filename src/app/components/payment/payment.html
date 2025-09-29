@@ -11,58 +11,123 @@
       <h2>Método de pago</h2>
 
       <!-- Credit Card Option -->
-      <div class="payment-option selected">
+       <form [formGroup]="crudUserForm" (ngSubmit)="onSubmit()">
+        <div class="payment-option selected">
         <label>
           <!-- <input type="radio" name="payment" checked> -->
           <strong>Tarjeta de Crédito</strong>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
         </label>
-        <div class="card-inputs">
-          <input type="text" placeholder="0000  0000  0000  0000">
-          <input type="text" placeholder="MM / YY">
-          <input type="text" placeholder="CVV">
+        <div class="row">
+            <div class="col-lg-4">
+              <div class="form-group">
+                <span>Numero Tarjeta:</span>
+                <input type="text" placeholder="0000-0000-0000-0000" name="numtarjeta" formControlName="numtarjeta"
+                  [class.valid]="isFieldInvalid('numtarjeta')">
+                <div *ngIf="isFieldInvalid('numtarjeta')" class="error-messages">
+                  <span *ngIf="hasError('numtarjeta','required')" class="error">El número de tarjeta es requerido.</span>
+                  <span *ngIf="hasError('numtarjeta','pattern')" class="error">El número de tarjeta debe ser numérico y con formato 0000-0000-0000-0000.</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="form-group">
+                <span>Fecha Expiración:</span>
+                <input type="text" placeholder="MM / YY" name="fechavencimiento" formControlName="fechavencimiento"
+                  [class.valid]="isFieldInvalid('fechavencimiento')">
+                <div *ngIf="isFieldInvalid('fechavencimiento')" class="error-messages">
+                  <span *ngIf="hasError('fechavencimiento','required')" class="error">La fecha de expiración es requerida.</span>
+                  <span *ngIf="hasError('fechavencimiento','pattern')" class="error">El formato debe ser MM / YY.</span>
+                </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="form-group">
+              <span>CVV:</span>
+              <input type="text" placeholder="CVV" name="cvv" formControlName="cvv"
+                [class.valid]="isFieldInvalid('cvv')">
+              <div *ngIf="isFieldInvalid('cvv')" class="error-messages">
+                <span *ngIf="hasError('cvv','required')" class="error">El CVV es requerido.</span>
+                <span *ngIf="hasError('cvv','pattern')" class="error">El CVV debe ser numérico y contener 3 dígitos.</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="card-inputs">
+
+        <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <span>Nombres Tarjeta:</span>
+                <input type="text" placeholder="Ingrese el nombre de tarjeta" name="nombretarjeta" formControlName="nombretarjeta"
+                  [class.valid]="isFieldInvalid('nombretarjeta')">
+                <div *ngIf="isFieldInvalid('nombretarjeta')" class="error-messages">
+                  <span *ngIf="hasError('nombretarjeta','required')" class="error">El nombre de la tarjeta es requerido.</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <span>Email a enviar:</span>
+                <input type="text" placeholder="Ingrese el email para enviar comprobante" name="email" formControlName="email"
+                  [class.valid]="isFieldInvalid('email')">
+                <div *ngIf="isFieldInvalid('email')" class="error-messages">
+                  <span *ngIf="hasError('email','required')" class="error">El email es requerido.</span>
+                  <span *ngIf="hasError('email','email')" class="error">El formato del email es inválido.</span>
+                </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="card-inputs">
           <input type="text" placeholder="Nombres">
           <input type="text" placeholder="Apellidos">
         </div>
-        <input type="text" placeholder="Correo Electrónico">
+        <input type="text" placeholder="Correo Electrónico"> -->
         
       </div>
 
       <!-- Paypal Option -->
       <div class="payment-option">
-        <label>
-          <input type="radio" checked="checked" name="payment">
-          <strong>Tarjeta de Credito</strong>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-        </label>
-        <img src="images/icon_tc.jpg" alt="Tarjeta de Crédito" class="paypal-logo">
+        <div class="row">
+          <div class="col-lg-4"><strong>Tarjeta de Credito</strong></div>
+          <div class="col-lg-4"><input type="radio" checked="checked" name="payment"></div>
+          <div class="col-lg-4"><img src="images/icon_tc.jpg" alt="Tarjeta de Crédito" class="paypal-logo"></div>
+        </div>
+      
       </div>
 
       <!-- Buttons -->
-      <div class="form-buttons">
+      <!-- <div class="form-buttons">
          <a href="/paymentok" id="btnaddcart">Pagar</a> &nbsp;&nbsp;&nbsp;
         <a href="/shipping" id="btnaddcart2">Regresar</a>
-      </div>
+      </div> -->
+      <div class="">
+          <div class="row">
+            <div class="col-lg-6"><a href="/shipping" id="btnaddcart2">Regresar</a></div>
+            <!-- <div class="col-lg-6 btnsgtNext"><a href="/paymentok" id="btnaddcart">Pagar</a></div> -->
+             <div class="col-lg-6 btnsgtNext">
+              <button type="submit" [disabled]="crudUserForm.invalid || flag_enviado" class="btn-submit" id="btnaddcart">
+                {{flag_enviado ? 'Verificando...' : 'Pagar'}}
+              </button><br>
+              <span *ngIf="!crudUserForm.valid" class="span_error">Por favor, completar los datos para el detalle de envio.</span>
+            </div>
+          </div>
+        </div>
+       </form>
+      
+
+      
     </div>
 
     <!-- Summary -->
     <div class="summary">
       <h2>Detalles:</h2>
-      <div class="summary-item">
-        <div class="image-placeholder"><img src="images/products/colchones/MD008017-1.jpg" alt=""></div>
+      <div *ngFor="let ci of cartItems">
+        <div class="summary-item">
+        <div class="image-placeholder"><img src="{{ ci.image }}" alt=""></div>
         <div>
-          <span>Producto 1</span><br>
-          <span>S/300.00</span>
+          <span>{{ ci.name }}</span><br>
+          <span>S/{{ ci.price }}</span>
         </div>
       </div>
-      <div class="summary-item">
-        <div class="image-placeholder"><img src="images/products/colchones/MD008003-1.jpg" alt=""></div>
-        <div>
-          <span>Producto 2</span><br>
-          <span>S/300.00</span>
-        </div>
       </div>
 
       <!-- <div class="voucher">
@@ -71,16 +136,22 @@
 
       <div class="summary-totals">
         <div class="row">
-        <div class="col-6"><span>Subtotal</span></div>
-        <div class="col-6"><span>S/600.00</span></div>
+        <div class="col-lg-6"><span>Subtotal</span></div>
+        <div class="col-lg-6"><span>S/{{ getSubTotalPrice() | formatTwodecimal }}</span></div>
       </div>
       <div class="row">
-        <div class="col-6"><span>Gastos de envío</span></div>
-        <div class="col-6"><span>S/0.00</span></div>
+        <div class="col-lg-6"><span>Gastos de envío</span></div>
+        <div class="col-lg-6"><span>S/0.00</span></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6"><span>Descuento por cupón</span></div>
+        <!-- <div class="col-lg-6"><span>S/{{ getDiscountedCoupon() | formatTwodecimal }}</span></div> -->
+         <div class="col-lg-6"><span>S/{{ discountedCoupon | formatTwodecimal }}</span></div>
       </div>
       <div class="row total">
-        <div class="col-6"><span>TOTAL</span></div>
-        <div class="col-6"><span>S/600.00</span></div>
+        <div class="col-lg-6"><span>TOTAL</span></div>
+        <!-- <div class="col-lg-6"><span>S/{{ getTotalPrice() | formatTwodecimal }}</span></div> -->
+        <div class="col-lg-6"><span>S/{{ totalPrice | formatTwodecimal }}</span></div>
       </div>
       </div>
     </div>

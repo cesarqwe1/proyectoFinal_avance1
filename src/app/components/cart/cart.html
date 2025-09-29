@@ -21,52 +21,46 @@
     <div class="shopping-cart">
       <h2>Carro de la compra</h2>
 
-      <div class="cart-item">
-        <img src="images/products/colchones/MD008017-1.jpg" alt="product">
+      <div class="cart-item" *ngFor="let ci of cartItems">
+        <img src="{{ ci.image }}" alt="product">
         <div class="cart-item-details">
-          <h4>NOMBRE PRODUCTO</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h4>{{ ci.name }}</h4>
+          <p>{{ ci.description }}</p>
+          <p>cupón:{{ ci.coupon }}</p>
         </div>
-        <div class="cart-item-price">S/300.00</div>
-        <select>
-          <option>1 pcs</option>
-          <option>2 pcs</option>
-          <option>3 pcs</option>
-        </select>
+        <div class="cart-item-alone">S/{{ ci.price }}</div>
+        <div class="cart-item-alone">
+<select [(ngModel)]="selectQty" (change)="updateQuantity(ci.id, selectQty, codigocupon.value)" [ngModel]="ci.quantity">
+          <option value="1">1 pcs</option>
+          <option value="2">2 pcs</option>
+          <option value="3">3 pcs</option>
+          <option value="4">4 pcs</option>
+          <option value="5">5 pcs</option>
+          <option value="6">6 pcs</option>
+          <option value="7">7 pcs</option>
+          <option value="8">8 pcs</option>
+          <option value="9">9 pcs</option>
+          <option value="10">10 pcs</option>
+          <option value="11">11 pcs</option>
+          <option value="12">12 pcs</option>
+          <option value="13">13 pcs</option>
+          <option value="14">14 pcs</option>
+          <option value="15">15 pcs</option>
+        </select><br>
+        <span *ngIf="valstock" class="stock-info">Stock:{{ ci.stock }}</span>
+        </div>
+        
+        &nbsp;&nbsp;&nbsp;
+        <button (click)="removeCartItems(ci.id)" class="removebtn"><img src="images/eliminar.png" alt="" id="img_remove"></button>
       </div>
 
-      <div class="cart-item">
-        <img src="images/products/colchones/MD008003-1.jpg" alt="product">
-        <div class="cart-item-details">
-          <h4>NOMBRE PRODUCTO</h4>
-          <p>Cras auctor tortor in augue ultricies, ut viverra urna accumsan.</p>
-        </div>
-        <div class="cart-item-price">S/200.00</div>
-        <select>
-          <option>1 pcs</option>
-          <option>2 pcs</option>
-          <option>3 pcs</option>
-        </select>
-      </div>
-      <div class="cart-item">
-        <img src="images/products/colchones/MD007851-1.jpg" alt="product">
-        <div class="cart-item-details">
-          <h4>NOMBRE PRODUCTO</h4>
-          <p>Cras auctor tortor in augue ultricies, ut viverra urna accumsan.</p>
-        </div>
-        <div class="cart-item-price">S/100.00</div>
-        <select>
-          <option>1 pcs</option>
-          <option>2 pcs</option>
-          <option>3 pcs</option>
-        </select>
-      </div>
-
-      <div class="buttons">
+      <div class="buttons" *ngIf="existCartItems">
         <!-- <button class="next">Siguiente</button>
         <button class="cancel">Cancelar</button> -->
-        <a href="/shipping" id="btnaddcart">Siguiente</a> &nbsp;&nbsp;&nbsp;
-        <a href="/home" id="btnaddcart2">Cancelar</a>
+        <a href="/home" id="btnaddcart2">Cancelar</a> &nbsp;&nbsp;&nbsp;
+        <!-- <a href="/shipping" id="btnaddcart">Siguiente</a> -->
+        <a id="btnaddcart" (click)="ValANDRedirect()">Siguiente</a>
+        
       </div>
     </div>
 
@@ -79,25 +73,35 @@
         <div class="cupon-input-group">
           <div class="row">
             <div class="col-8" id="div_codigo_cupon">
-              <input type="text" id="codigo-cupon" class="form-control" placeholder="Código cupón" />
+              <!-- [disabled]="isCouponValid !== -1 && isCouponValid !== 0" -->
+              <input type="text" id="codigo-cupon" class="form-control"  
+              placeholder="Código cupón" #codigocupon />
+              <span *ngIf="isCouponValid === 0 && codigocupon.value" 
+              class="span-coupon-valid">No se puede añadir el cupón al carrito</span>
             </div>
             <div class="col-4">
-              <button type="button" class="btn btn-primary" id="btnaplicar">Aplicar</button>
+              <button type="button" class="btn btn-primary" id="btnaplicar" (click)="validateCoupon(codigocupon.value)">Aplicar</button>
             </div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-6"><span>Subtotal</span></div>
-        <div class="col-6"><span>S/600.00</span></div>
+        <div class="col-lg-6"><span>Subtotal</span></div>
+        <div class="col-lg-6"><span>S/{{ getSubTotalPrice() | formatTwodecimal }}</span></div>
       </div>
       <div class="row">
-        <div class="col-6"><span>Gastos de envío</span></div>
-        <div class="col-6"><span>S/0.00</span></div>
+        <div class="col-lg-6"><span>Gastos de envío</span></div>
+        <div class="col-lg-6"><span>S/0.00</span></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6"><span>Descuento por cupón</span></div>
+        <!-- <div class="col-lg-6"><span>S/{{ getDiscountedCoupon() | formatTwodecimal }}</span></div> -->
+        <div class="col-lg-6"><span>S/{{ discountedCoupon | formatTwodecimal }}</span></div>
       </div>
       <div class="row total">
-        <div class="col-6"><span>TOTAL</span></div>
-        <div class="col-6"><span>S/600.00</span></div>
+        <div class="col-lg-6"><span>TOTAL</span></div>
+        <!-- <div class="col-lg-6"><span>S/{{ getTotalPrice() | formatTwodecimal }}</span></div> -->
+        <div class="col-lg-6"><span>S/{{ totalPrice | formatTwodecimal }}</span></div>
       </div>
     </div>
   </div>

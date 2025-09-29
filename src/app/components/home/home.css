@@ -1,5 +1,5 @@
 * {
-      margin: 0;
+      /* margin: 0; */
       padding: 0;
       box-sizing: border-box;
       font-family: Arial, sans-serif;
@@ -214,3 +214,12 @@
 
 
     /* CARRUSEL END */
+
+    .section-pagination {
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .carousel-control-right, .carousel-control-left{
+          background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .0001) 0, rgb(0 0 0 / 87%) 100%) !important;
+    }

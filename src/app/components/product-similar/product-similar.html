@@ -1,4 +1,17 @@
-<section><h2>Productos Similares</h2></section>
+    <div class="card">
+      <img src="{{ product.image }}" alt="{{ product.name }}">
+      <div class="card-content">
+        <div>
+          <div class="brand">{{ product.brand }}</div>
+          <div class="title">{{ product.name }}</div>
+          <div class="price">S/{{ product.price }}</div>
+        </div>
+        <!-- <a [routerLink]="['/product', product.id]" class="btn">Ver producto</a> -->
+        <a href="/product/{{ product.id }}" class="btn">Ver producto</a>
+      </div>
+    </div>
+
+<!-- <section><h2>Productos Similares</h2></section>
 
 <div class="grid">
     <div class="card">
@@ -48,4 +61,4 @@
         <a href="/product/colchoneta0" class="btn">Ver producto</a>
       </div>
     </div>
-  </div>
+  </div> -->

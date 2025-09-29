@@ -21,6 +21,8 @@ body {
       justify-content: space-between;
       max-width: 280px;
       margin: 0 auto;
+      height: auto;
+      
     }
 
     .card img {
@@ -48,6 +50,7 @@ body {
       font-weight: bold;
       color: #333;
       margin-bottom: 10px;
+      height: 50px;
     }
 
     .price {

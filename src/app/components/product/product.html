@@ -15,27 +15,26 @@
 
   <div class="product-detail">
     <div class="product-images">
-      <div class="main-img"><img src="images/products/colchones/MD008017-1.jpg" alt="Cojín Beige"></div>
+      <div class="main-img"><img src="{{ product.image }}" alt="{{ product.name }}"></div>
       <!-- <div class="thumbs">
         <div></div><div></div><div></div>
       </div> -->
     </div>
     <div class="product-info">
-      <h1>Titulo producto</h1>
+      <h1>{{ product.name }}</h1>
       <div class="rating">★★★★☆ (64 reviews)</div>
-      <div class="price">$123.00</div>
-      <select>
-        <option>Cantidad:</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
+      <div class="price">S/{{ product.price }}</div>
+      <span>Cantidad: </span>
+      <select [(ngModel)]="selectQty">
+        <!-- <option>Cantidad:</option> -->
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
       </select><br>
-      <a href="/cart" id="btnaddcart">Añadir al carro</a>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
-        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a 
-        type specimen book.</p>
+      <a href="/cart" id="btnaddcart" (click)="addToCart(selectQty)">Añadir al carro</a>
+      <p>{{ product.description }}</p>
     </div>
   </div>
 
@@ -62,7 +61,17 @@
       </div>
     </div>
   </section> -->
-<app-product-similar></app-product-similar>
+  <hr><br>
+  <h2>Productos Similares</h2><br><br>
+  <div class="grid">
+    <app-product-similar *ngFor="let product of filteredProducts | paginate: { itemsPerPage: 4, currentPage: p }"
+      [product]="product"></app-product-similar>
+  </div>
+
+  <section class="section-pagination">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</section>
+
   <!-- <section class="reviews">
     <h2>Reviews</h2>
     <div class="review">

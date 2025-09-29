@@ -93,6 +93,15 @@ body {
       font-weight: bold;
     }
 
+    .cart-item-alone{
+      padding: 0px 35px;
+    }
+
+    .stock-info {
+      font-size: 12px;
+      color: green;
+    }
+
     .cart-item select {
       padding: 5px;
     }
@@ -161,7 +170,7 @@ body {
 
 
     #btnaddcart{
-    display: inline-block;
+    /* display: inline-block; */
     padding: 10px 20px;
     background-color: #0B7DB9;
     color: #fff;
@@ -169,9 +178,12 @@ body {
     border-radius: 6px;
     font-weight: bold;
     transition: #082e57;
+    float: right;
     }
+
     #btnaddcart:hover{
     background-color: #082e57;
+    cursor: pointer;
     }
 
     #btnaddcart2{
@@ -194,4 +206,19 @@ body {
     background-color:#999;
     color: black;
     border: 1px solid #999;
+    }
+
+    #img_remove{
+    width: 20px;
+    height: 20px;
+    
+    }
+
+    .removebtn{
+      width: 37px;
+    }
+
+    .span-coupon-valid{
+      color: red;
+      font-size: 12px;
     }

@@ -3,14 +3,20 @@
       padding: 0;
       box-sizing: border-box;
       font-family: Arial, sans-serif;
+
     }
     .container{
         margin: 0 auto;
         max-width: 1700px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
     }
     body {
       background: #fff;
       color: #333;
+      height: 100%;
+      margin: 0;
     }
     header {
       display: flex;
@@ -115,13 +121,16 @@
       font-size: 14px;
     }
     .footer {
-      margin-top: 40px;
+      margin-top: auto;
       padding: 30px 5%;
       background: #f2f2f2;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
       text-align: center;
+      bottom: 0;
+      /* position: fixed; */
+      width: 100%;
     }
     .footer h4 {
       margin-bottom: 10px;
@@ -137,3 +146,55 @@
       color: #666;
     }
 
+    main {
+  flex: 1; /* Esto hace que el contenido principal ocupe el espacio disponible */
+}
+
+    .search-container {
+      position: relative; /* necesario para que los resultados se posicionen respecto al input */
+      display: inline-block;
+    }
+
+    .search-results {
+      position: absolute;
+      top: 100%; /* lo coloca justo debajo del input */
+      left: 0;
+      /* width: 100%; */
+      background: #fff;
+      /* border: 1px solid #ddd; */
+      border-top: none;
+      z-index: 1000;
+      max-height: 200px;
+      overflow-y: auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 400px;
+    }
+
+    .list-item{
+      padding: 10px;
+    }
+
+    .list-item:hover{
+      background: #f2f2f2;
+      cursor: pointer;
+    }
+
+    .swatch-circle {
+    border: 0.063em solid rgba(0, 0, 0, 0.3);
+    width: 2.5em;
+    height: 2.5em;
+    background: #fff;
+    border-radius: 1.25em;
+    border: 0.063em solid rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    margin-right: 0.313em;
+    position: relative;
+    }
+
+    .list-item > img{
+      /* width: 50px;
+      height: 50px;
+      vertical-align: middle;
+      margin-right: 10px; */
+      vertical-align: middle;
+    }

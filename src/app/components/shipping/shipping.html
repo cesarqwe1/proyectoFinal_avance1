@@ -9,22 +9,118 @@
     <!-- Shipping Form -->
     <div class="shipping-form">
       <h2>Detalles de envío</h2>
-      <form>
-        <div class="form-row">
-          <input type="text" placeholder="Nombres:">
-          <input type="text" placeholder="Apellidos:">
+      <form [formGroup]="crudUserForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <span>Nombres:</span>
+              <input type="text" placeholder="Ingrese los nombres:" name="nombres" formControlName="nombres"
+                [class.valid]="isFieldInvalid('nombres')">
+              <div *ngIf="isFieldInvalid('nombres')" class="error-messages">
+                <span *ngIf="hasError('nombres','required')" class="error">El nombre es requerido.</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <span>Apellidos:</span>
+              <input type="text" placeholder="Ingrese los apellidos:" name="apellidos" formControlName="apellidos"
+                [class.valid]="isFieldInvalid('apellidos')">
+              <div *ngIf="isFieldInvalid('apellidos')" class="error-messages">
+                <span *ngIf="hasError('apellidos','required')" class="error">El apellido es requerido.</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <input type="text" placeholder="Dirección:">
-        <input type="text" placeholder="Dirección 2:">
-        <div class="form-row">
-          <select>
-            <option>País</option>
-          </select>
-          <input type="text" placeholder="Ciudad:">
+        
+          
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <span>Email:</span>
+              <input type="text" placeholder="Ingrese el email:" name="email" formControlName="email"
+                [class.valid]="isFieldInvalid('email')">
+              <div *ngIf="isFieldInvalid('email')" class="error-messages">
+                <span *ngIf="hasError('email','required')" class="error">El email es requerido.</span>
+                <span *ngIf="hasError('email','email')" class="error">El email no es válido.</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <span>DNI:</span>
+              <input type="text" placeholder="Ingrese el dni:" name="dni" formControlName="dni"
+                [class.valid]="isFieldInvalid('dni')">
+              <div *ngIf="isFieldInvalid('dni')" class="error-messages">
+                <span *ngIf="hasError('dni','required')" class="error">El dni es requerido.</span>
+                <span *ngIf="hasError('dni','pattern')" class="error">El dni debe ser numérico y contener 8 dígitos.</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="form-row">
-          <input type="text" placeholder="Código Postal:">
-          <input type="text" placeholder="Teléfono:">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-group">
+              <span>Dirección:</span>
+              <input type="text" placeholder="Dirección:" name="direccion" formControlName="direccion"
+            [class.valid]="isFieldInvalid('direccion')">
+            <div *ngIf="isFieldInvalid('direccion')" class="error-messages">
+                <span *ngIf="hasError('direccion','required')" class="error">La dirección es requerida.</span>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <span>Pais:</span>
+              <select name="pais" id="pais" class="category-select form-control" formControlName="pais">
+                <!-- <option value="all" selected>País</option> -->
+                <option value="PERU">PERU</option>
+              </select>
+            </div>
+            <div *ngIf="hasErrorList('pais', 'selectlistnoall')" class="error-messages">
+                    <span class="error">El país es requerido.</span>
+                </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <span>Ciudad:</span>
+              <input type="text" placeholder="Ciudad:" name="ciudad" formControlName="ciudad"
+                [class.valid]="isFieldInvalid('ciudad')">
+              <div *ngIf="isFieldInvalid('ciudad')" class="error-messages">
+                <span *ngIf="hasError('ciudad','required')" class="error">La ciudad es requerida.</span>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <span>Código Postal:</span>
+              <input type="text" placeholder="Código Postal:" name="codigoPostal" formControlName="codigoPostal"
+                [class.valid]="isFieldInvalid('codigoPostal')">
+              <div *ngIf="isFieldInvalid('codigoPostal')" class="error-messages">
+                <span *ngIf="hasError('codigoPostal','required')" class="error">El código postal es requerido.</span>
+                <span *ngIf="hasError('codigoPostal','pattern')" class="error">El código postal debe ser numérico.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="form-group">
+              <span>Teléfono:</span>
+              <input type="text" placeholder="Teléfono:" name="telefono" formControlName="telefono"
+                [class.valid]="isFieldInvalid('telefono')">
+              <div *ngIf="isFieldInvalid('telefono')" class="error-messages">
+                <span *ngIf="hasError('telefono','required')" class="error">El teléfono es requerido.</span>
+                <span *ngIf="hasError('telefono','pattern')" class="error">El teléfono debe ser numérico y contener 9 dígitos.</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Shipping Options -->
@@ -46,9 +142,18 @@
         </div> -->
 
         <!-- Buttons -->
-        <div class="form-buttons">
-          <a href="/payment" id="btnaddcart">Siguiente</a> &nbsp;&nbsp;&nbsp;
-        <a href="/cart" id="btnaddcart2">Regresar</a>
+        <div class="">
+          <div class="row">
+            <div class="col-lg-6"><a href="/cart" id="btnaddcart2">Regresar</a></div>
+            <!-- <div class="col-lg-6 btnsgtNext"><a href="/payment" id="btnaddcart">Siguiente</a></div> -->
+            <div class="col-lg-6 btnsgtNext">
+              <button type="submit" [disabled]="crudUserForm.invalid || flag_enviado" class="btn-submit" id="btnaddcart">
+                {{flag_enviado ? 'Verificando...' : 'Siguiente'}}
+              </button><br>
+              <span *ngIf="!crudUserForm.valid" class="span_error">Por favor, completar los datos para el detalle de envio.</span>
+            </div>
+            
+          </div>
         </div>
       </form>
     </div>
@@ -56,20 +161,23 @@
     <!-- Summary -->
     <div class="summary">
       <h2>Detalles:</h2>
-      <div class="summary-item">
-        <div class="image-placeholder"><img src="images/products/colchones/MD008017-1.jpg" alt=""></div>
+      <div *ngFor="let ci of cartItems">
+        <div class="summary-item">
+        <div class="image-placeholder"><img src="{{ ci.image }}" alt=""></div>
         <div>
-          <span>Producto 1</span><br>
-          <span>S/300.00</span>
+          <span>{{ ci.name }}</span><br>
+          <span>S/{{ ci.price }}</span>
         </div>
       </div>
-      <div class="summary-item">
+      </div>
+      
+      <!-- <div class="summary-item">
         <div class="image-placeholder"><img src="images/products/colchones/MD008003-1.jpg" alt=""></div>
         <div>
           <span>Producto 2</span><br>
           <span>S/300.00</span>
         </div>
-      </div>
+      </div> -->
 
       <!-- <div class="voucher">
         <a href="#">HAVE A VOUCHER?</a>
@@ -77,16 +185,22 @@
 
       <div class="summary-totals">
         <div class="row">
-        <div class="col-6"><span>Subtotal</span></div>
-        <div class="col-6"><span>S/600.00</span></div>
+        <div class="col-lg-6"><span>Subtotal</span></div>
+        <div class="col-lg-6"><span>S/{{ getSubTotalPrice() | formatTwodecimal }}</span></div>
       </div>
       <div class="row">
-        <div class="col-6"><span>Gastos de envío</span></div>
-        <div class="col-6"><span>S/0.00</span></div>
+        <div class="col-lg-6"><span>Gastos de envío</span></div>
+        <div class="col-lg-6"><span>S/0.00</span></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6"><span>Descuento por cupón</span></div>
+        <!-- <div class="col-lg-6"><span>S/{{ getDiscountedCoupon() | formatTwodecimal }}</span></div> -->
+         <div class="col-lg-6"><span>S/{{ discountedCoupon | formatTwodecimal }}</span></div>
       </div>
       <div class="row total">
-        <div class="col-6"><span>TOTAL</span></div>
-        <div class="col-6"><span>S/600.00</span></div>
+        <div class="col-lg-6"><span>TOTAL</span></div>
+        <!-- <div class="col-lg-6"><span>S/{{ getTotalPrice() | formatTwodecimal }}</span></div> -->
+         <div class="col-lg-6"><span>S/{{ totalPrice | formatTwodecimal }}</span></div>
       </div>
       </div>
     </div>
